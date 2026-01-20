@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentino Chiola - CV</title>
+    <style>
+        /* RESET Y CONFIGURACIÓN CRÍTICA */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+            font-size: 10pt;
+        }
+
+        /* CONTENEDOR A4 UNA PÁGINA */
+        .page {
+            width: 21cm;
+            height: 29.7cm;
+            background: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* SIDEBAR - MÁS COMPACTO */
+        .sidebar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6.5cm;
+            height: 29.7cm;
+            background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 1.2cm 0.6cm;
+            overflow: hidden;
+        }
+
+        /* CONTENIDO PRINCIPAL - MÁS ANCHO */
+        .main-content {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 14.5cm;
+            height: 29.7cm;
+            padding: 1.2cm 1cm;
+            overflow: hidden;
+        }
+
+        /* ELEMENTOS SIDEBAR - MÁS COMPACTOS */
+        .profile-image-container {
+            text-align: center;
+            margin-bottom: 15px;
+            width: 3.5cm;
+            height: 3.5cm;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            border: 0.15cm solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            transform: scale(1.3);
+        }
+
+        .name {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 3px;
+            text-align: center;
+        }
+
+        .title-position {
+            font-size: 12pt;
+            color: #ecf0f1;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .sidebar-section {
+            margin-bottom: 18px;
+        }
+
+        .sidebar-title {
+            font-size: 12pt;
+            font-weight: 600;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 8.5pt;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-icon {
+            width: 14px;
+            height: 14px;
+            color: #3498db;
+            background-color: white;
+            border-radius: 50%;
+            padding: 2px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+        }
+
+        /* SKILLS COMPACTAS EN SIDEBAR */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            font-size: 8.5pt;
+        }
+
+        .skill-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 4px 6px;
+            border-radius: 3px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .education-item {
+            margin-bottom: 8px;
+        }
+
+        .university {
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        .degree {
+            font-size: 9pt;
+            color: #ecf0f1;
+        }
+
+        .language-item {
+            font-size: 9pt;
+            margin-bottom: 4px;
+        }
+
+        /* CONTENIDO PRINCIPAL - MÁS COMPACTO */
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 13pt;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ecf0f1;
+            font-weight: 600;
+            position: relative;
+            padding-left: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 16px;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+
+        .profile-text {
+            line-height: 1.4;
+            color: #555;
+            font-size: 9.5pt;
+            text-align: justify;
+            margin-bottom: 5px;
+        }
+
+        .job-experience {
+            margin-bottom: 14px;
+        }
+
+        .company-date {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+            align-items: center;
+        }
+
+        .company {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 11pt;
+        }
+
+        .date {
+            color: #3498db;
+            font-weight: 500;
+            background-color: #ecf0f1;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 8.5pt;
+            white-space: nowrap;
+        }
+
+        .role {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+            font-size: 10pt;
+        }
+
+        ul {
+            padding-left: 16px;
+            margin-top: 5px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            color: #444;
+            line-height: 1.35;
+            font-size: 9.5pt;
+        }
+
+        /* EXPERIENCIA ADICIONAL MÁS COMPACTA */
+        .skills-section {
+            margin-top: 10px;
+        }
+
+        .skills-category {
+            margin-bottom: 10px;
+        }
+
+        .skills-category-title {
+            font-size: 10pt;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tag {
+            background-color: #f0f8ff;
+            border: 1px solid #3498db;
+            color: #2c3e50;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 8.5pt;
+            font-weight: 500;
+        }
+
+        /* BOTÓN DE IMPRESIÓN */
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+            z-index: 1000;
+            font-size: 11pt;
+        }
+
+        /* MEDIA PRINT - CRÍTICO */
+        @media print {
+            @page {
+                margin: 0;
+                size: A4;
+            }
+
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+                overflow: hidden !important;
+            }
+
+            .page {
+                width: 21cm !important;
+                height: 29.7cm !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                overflow: visible !important;
+                position: relative !important;
+            }
+
+            .sidebar {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 6.5cm !important;
+                height: 29.7cm !important;
+                background: #2c3e50 !important;
+                padding: 1.2cm 0.6cm !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            .main-content {
+                position: absolute !important;
+                right: 0 !important;
+                top: 0 !important;
+                width: 14.5cm !important;
+                height: 29.7cm !important;
+                padding: 1.2cm 1cm !important;
+                overflow: visible !important;
+            }
+
+            .print-button {
+                display: none !important;
+            }
+
+            /* OPTIMIZAR TAMAÑOS DE FUENTE PARA IMPRESIÓN */
+            .name {
+                font-size: 15pt !important;
+            }
+
+            .title-position {
+                font-size: 11pt !important;
+            }
+
+            .sidebar-title {
+                font-size: 11pt !important;
+            }
+
+            .contact-item,
+            .skill-item,
+            .language-item {
+                font-size: 8pt !important;
+            }
+
+            .section-title {
+                font-size: 12pt !important;
+            }
+
+            .company {
+                font-size: 10pt !important;
+            }
+
+            .profile-text,
+            li {
+                font-size: 9pt !important;
+            }
+
+            .date {
+                font-size: 8pt !important;
+            }
+
+            .skill-tag {
+                font-size: 8pt !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- SIDEBAR COMPACTO -->
+        <div class="sidebar">
+            <div class="profile-image-container">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGRkuMtIz6v1w/profile-displayphoto-scale_200_200/B4DZvcFwbQIAAY-/0/1768924055929?e=1770249600&v=beta&t=-FSumbw0n5I-JEKlkazD6LWQOE8pwbifP-fULRB7nLE"
+                    alt="Valentino Chiola" class="profile-image">
+            </div>
+
+            <div class="name">Valentino Chiola</div>
+            <div class="title-position">Semi-Senior Software Engineer</div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Contact</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">GH</span>
+                        <a target="_blank" href="https://github.com/ValenChiola">/ValenChiola</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">IN</span>
+                        <a target="_blank"
+                            href="https://www.linkedin.com/in/valentino-chiola-651b421b8/">/in/valentino-chiola</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉</span>
+                        <span>tinochiola006@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🏠</span>
+                        <span>Mar del Plata, Argentina</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Education</div>
+                <div class="education-item">
+                    <div class="university">UNMDP</div>
+                    <div class="degree">Computer Engineer</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Languages</div>
+                <div class="languages-list">
+                    <div class="language-item">Spanish (native)</div>
+                    <div class="language-item">English (B2, certified)</div>
+                </div>
+            </div>
+
+            <!-- <div class="sidebar-section">
+                <div class="sidebar-title">Skills</div>
+                <div class="skills-grid">
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">TypeScript</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">Fastify</div>
+                    <div class="skill-item">Redis</div>
+                    <div class="skill-item">WebSockets</div>
+                    <div class="skill-item">AWS</div>
+                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">MySQL</div>
+                    <div class="skill-item">MongoDB</div>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL COMPACTO -->
+        <div class="main-content">
+            <div class="section">
+                <div class="section-title">Profile</div>
+                <div class="profile-text">
+                    Semi-Senior Software Engineer with experience building and maintaining scalable web applications. I
+                    work hands-on with React or Next,.js, TypeScript, and modern front-end tools, contributing to
+                    real-time features
+                    and integrations used by 50,000+ users. I focus on writing clean, maintainable code and
+                    collaborating closely with back-end teams.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Work Experience</div>
+
+                <div class="job-experience">
+                    <div class="company-date">
+                        <div class="company">EggLive</div>
+                        <div class="date">Oct 2021 – Present</div>
+                    </div>
+                    <div class="role">Ssr Software Engineer</div>
+                    <ul>
+                        <li>Implemented a user registration system with AWS Lambda and SQS that scales to 40k+ daily
+                            sign-ups without degradation.</li>
+                        <li>Developed a virtual meeting platform for daily course sessions (similar to Zoom/Meet) used
+                            for thousands of users simultaneously.</li>
+                        <li>Enterprise microservice architecture for B2B2C platforms with DDD, event-driven
+                            communication, and cloud-native resilience.</li>
+                    </ul>
+                </div>
+
+                <div class="job-experience">
+                    <div class="company-date">
+                        <div class="company">Egg Live</div>
+                        <div class="date">June 2021 – 2022</div>
+                    </div>
+                    <div class="role">Professor</div>
+                    <ul>
+                        <li>Taught an Egg course for over 100 students, guiding them through theoretical concepts and
+                            hands-on practice.</li>
+                        <li>Designed dynamic classes and supported students in building technical skills.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Side Projects
+                    <div class="date">Mar 2024 – Present</div>
+                </div>
+                <div class="profile-text">
+                    Working with university faculty on academic-related projects. Managing full development lifecycle —
+                    planning, implementation, and delivery — while maintaining effective communication and meeting
+                    deadlines.
+                </div>
+            </div>
+
+            <div class="section skills-section">
+                <div class="section-title">Technical Expertise</div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">Frontend & Backend</div>
+                    <div class="skills-tags">
+                        <span class="skill-tag">React & TypeScript</span>
+                        <span class="skill-tag">Node.js & Fastify</span>
+                        <span class="skill-tag">Redux & React Query</span>
+                        <span class="skill-tag">WebSockets</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">Cloud & DevOps</div>
+                    <div class="skills-tags">
+                        <span class="skill-tag">AWS (Lambda, SQS)</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">Databases</div>
+                    <div class="skills-tags">
+                        <span class="skill-tag">MySQL & PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">Architecture & Practices</div>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">DDD</span>
+                        <span class="skill-tag">Event-Driven</span>
+                        <span class="skill-tag">Clean Code</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">📄 Save as PDF (1 Page)</button>
+
+    <script>
+        // Configuración básica
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                if (!e.ctrlKey && !e.metaKey) {
+                    e.preventDefault();
+                    window.open(this.href, '_blank');
+                }
+            });
+        });
+
+        // Optimizar para impresión
+        window.addEventListener('beforeprint', function () {
+            document.body.style.fontSize = '10pt';
+        });
+    </script>
+</body>
+
+</html>
