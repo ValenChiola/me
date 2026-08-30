@@ -42,6 +42,28 @@ body {
     font-size: 11pt;
 }
 
+@media (max-width: 820px) {
+    body {
+        padding: 0;
+        align-items: flex-start;
+        min-height: auto;
+    }
+
+    .page {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        overflow: visible;
+    }
+
+    .print-button {
+        bottom: 12px;
+        right: 12px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}
+
 @media print {
     @page {
         margin: 0;
