@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import MainContent from '../components/MainContent.astro';
+---
+
+<Layout title="Valentino Chiola - CV">
+    <div class="page">
+        <Sidebar />
+        <MainContent />
+    </div>
+
+    <button class="print-button" onclick="window.print()">📄 Save as PDF (1 Page)</button>
+
+    <script>
+        document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+            link.addEventListener('click', function (e) {
+                const mouseEvent = e as MouseEvent;
+                if (!mouseEvent.ctrlKey && !mouseEvent.metaKey) {
+                    e.preventDefault();
+                    window.open((this as HTMLAnchorElement).href, '_blank');
+                }
+            });
+        });
+
+        window.addEventListener('beforeprint', function () {
+            document.body.style.fontSize = '10pt';
+        });
+    </script>
+</Layout>

@@ -1,0 +1,263 @@
+---
+const jobs = [
+    {
+        company: 'EggLive',
+        date: 'Oct 2021 – Present',
+        role: 'Ssr Software Engineer',
+        bullets: [
+            'Implemented a user registration system with AWS Lambda and SQS that scales to 40k+ daily sign-ups without degradation.',
+            'Developed a virtual meeting platform for daily course sessions (similar to Zoom/Meet) used for thousands of users simultaneously.',
+            'Enterprise microservice architecture for B2B2C platforms with DDD, event-driven communication, and cloud-native resilience.',
+        ],
+    },
+    {
+        company: 'Egg Live',
+        date: 'June 2021 – 2022',
+        role: 'Professor',
+        bullets: [
+            'Taught an Egg course for over 100 students, guiding them through theoretical concepts and hands-on practice.',
+            'Designed dynamic classes and supported students in building technical skills.',
+        ],
+    },
+];
+
+const skillCategories = [
+    {
+        title: 'Frontend & Backend',
+        tags: ['React & TypeScript', 'Node.js & Fastify', 'Redux & React Query', 'WebSockets', 'REST APIs'],
+    },
+    {
+        title: 'Cloud & DevOps',
+        tags: ['AWS (Lambda, SQS)', 'Docker', 'CI/CD', 'Git'],
+    },
+    {
+        title: 'Databases',
+        tags: ['MySQL & PostgreSQL', 'MongoDB', 'Redis'],
+    },
+    {
+        title: 'Architecture & Practices',
+        tags: ['Microservices', 'DDD', 'Event-Driven', 'Clean Code', 'Agile/Scrum'],
+    },
+];
+---
+
+<main class="main-content">
+    <div class="section">
+        <div class="section-title">Profile</div>
+        <div class="profile-text">
+            Senior Software Engineer with experience building and maintaining scalable web applications across the full
+            stack. I work hands-on with React, Next.js, TypeScript, and modern front-end tools, while also developing
+            and maintaining back-end services, APIs, and database integrations. I have contributed to real-time features
+            and end-to-end solutions used by 50,000+ users. I focus on writing clean, maintainable code, ensuring solid
+            architecture, and collaborating closely with cross-functional teams to deliver reliable, high-impact
+            products.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Work Experience</div>
+        {
+            jobs.map((job) => (
+                <div class="job-experience">
+                    <div class="company-date">
+                        <div class="company">{job.company}</div>
+                        <div class="date">{job.date}</div>
+                    </div>
+                    <div class="role">{job.role}</div>
+                    <ul>
+                        {job.bullets.map((b) => (
+                            <li>{b}</li>
+                        ))}
+                    </ul>
+                </div>
+            ))
+        }
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            Side Projects
+            <div class="date">Mar 2024 – Present</div>
+        </div>
+        <div class="profile-text">
+            Working with university faculty on academic-related projects. Managing full development lifecycle —
+            planning, implementation, and delivery — while maintaining effective communication and meeting deadlines.
+        </div>
+    </div>
+
+    <div class="section skills-section">
+        <div class="section-title">Technical Expertise</div>
+        {
+            skillCategories.map((cat) => (
+                <div class="skills-category">
+                    <div class="skills-category-title">{cat.title}</div>
+                    <div class="skills-tags">
+                        {cat.tags.map((t) => (
+                            <span class="skill-tag">{t}</span>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</main>
+
+<style>
+    .main-content {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 14.5cm;
+        height: 29.7cm;
+        padding: 1.2cm 1cm;
+        overflow: hidden;
+    }
+
+    .section {
+        margin-bottom: 16px;
+    }
+
+    .section-title {
+        font-size: 13pt;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ecf0f1;
+        font-weight: 600;
+        position: relative;
+        padding-left: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .section-title:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 16px;
+        background-color: #3498db;
+        border-radius: 2px;
+    }
+
+    .profile-text {
+        line-height: 1.4;
+        color: #555;
+        font-size: 9.5pt;
+        text-align: justify;
+        margin-bottom: 5px;
+    }
+
+    .job-experience {
+        margin-bottom: 14px;
+    }
+
+    .company-date {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3px;
+        align-items: center;
+    }
+
+    .company {
+        font-weight: bold;
+        color: #2c3e50;
+        font-size: 11pt;
+    }
+
+    .date {
+        color: #3498db;
+        font-weight: 500;
+        background-color: #ecf0f1;
+        padding: 1px 6px;
+        border-radius: 10px;
+        font-size: 8.5pt;
+        white-space: nowrap;
+    }
+
+    .role {
+        font-style: italic;
+        color: #7f8c8d;
+        margin-bottom: 6px;
+        font-size: 10pt;
+    }
+
+    ul {
+        padding-left: 16px;
+        margin-top: 5px;
+    }
+
+    li {
+        margin-bottom: 5px;
+        color: #444;
+        line-height: 1.35;
+        font-size: 9.5pt;
+    }
+
+    .skills-section {
+        margin-top: 10px;
+    }
+
+    .skills-category {
+        margin-bottom: 10px;
+    }
+
+    .skills-category-title {
+        font-size: 10pt;
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .skill-tag {
+        background-color: #f0f8ff;
+        border: 1px solid #3498db;
+        color: #2c3e50;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 8.5pt;
+        font-weight: 500;
+    }
+
+    @media print {
+        .main-content {
+            position: absolute !important;
+            right: 0 !important;
+            top: 0 !important;
+            width: 14.5cm !important;
+            height: 29.7cm !important;
+            padding: 1.2cm 1cm !important;
+            overflow: visible !important;
+        }
+
+        .section-title {
+            font-size: 12pt !important;
+        }
+
+        .company {
+            font-size: 10pt !important;
+        }
+
+        .profile-text,
+        li {
+            font-size: 9pt !important;
+        }
+
+        .date {
+            font-size: 8pt !important;
+        }
+
+        .skill-tag {
+            font-size: 8pt !important;
+        }
+    }
+</style>

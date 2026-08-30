@@ -1,0 +1,197 @@
+---
+const profileImage = '/me.jpeg';
+
+const contacts = [
+    { icon: 'GH', label: '/ValenChiola', href: 'https://github.com/ValenChiola' },
+    { icon: 'IN', label: '/in/valentino-chiola', href: 'https://www.linkedin.com/in/valentino-chiola-651b421b8/' },
+    { icon: '✉', label: 'tinochiola06@gmail.com' },
+    { icon: '🏠', label: 'Mar del Plata, Argentina' },
+];
+
+const languages = ['Spanish (native)', 'English (B2, certified)'];
+---
+
+<aside class="sidebar">
+    <div class="profile-image-container">
+        <img src={profileImage} alt="Valentino Chiola" class="profile-image" />
+    </div>
+
+    <div class="name">Valentino Chiola</div>
+    <div class="title-position">Senior Software Engineer</div>
+
+    <div class="sidebar-section">
+        <div class="sidebar-title">Contact</div>
+        <div class="contact-info">
+            {
+                contacts.map((c) => (
+                    <div class="contact-item">
+                        <span class="contact-icon">{c.icon}</span>
+                        {c.href ? (
+                            <a target="_blank" href={c.href}>
+                                {c.label}
+                            </a>
+                        ) : (
+                            <span>{c.label}</span>
+                        )}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <div class="sidebar-section">
+        <div class="sidebar-title">Education</div>
+        <div class="education-item">
+            <div class="university">Universidad Nacional de Mar del Plata</div>
+            <div class="degree">Software Engineer</div>
+        </div>
+    </div>
+
+    <div class="sidebar-section">
+        <div class="sidebar-title">Languages</div>
+        <div class="languages-list">
+            {languages.map((l) => <div class="language-item">{l}</div>)}
+        </div>
+    </div>
+</aside>
+
+<style>
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6.5cm;
+        height: 29.7cm;
+        background: linear-gradient(180deg, #2c3e50 0%, #3498db 100%);
+        color: white;
+        padding: 1.2cm 0.6cm;
+        overflow: hidden;
+    }
+
+    .profile-image-container {
+        text-align: center;
+        width: 3.5cm;
+        height: 3.5cm;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 15px;
+        border: 0.15cm solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+        transform: scale(1.3);
+    }
+
+    .name {
+        font-size: 16pt;
+        font-weight: bold;
+        margin-bottom: 3px;
+        text-align: center;
+    }
+
+    .title-position {
+        font-size: 12pt;
+        color: #ecf0f1;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+
+    .sidebar-section {
+        margin-bottom: 18px;
+    }
+
+    .sidebar-title {
+        font-size: 12pt;
+        font-weight: 600;
+        margin-bottom: 8px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 8.5pt;
+    }
+
+    .contact-item a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .contact-icon {
+        width: 14px;
+        height: 14px;
+        color: #3498db;
+        background-color: white;
+        border-radius: 50%;
+        padding: 2px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+    }
+
+    .education-item {
+        margin-bottom: 8px;
+    }
+
+    .university {
+        font-weight: bold;
+        font-size: 10pt;
+    }
+
+    .degree {
+        font-size: 9pt;
+        color: #ecf0f1;
+    }
+
+    .language-item {
+        font-size: 9pt;
+        margin-bottom: 4px;
+    }
+
+    @media print {
+        .sidebar {
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            width: 6.5cm !important;
+            height: 29.7cm !important;
+            background: #2c3e50 !important;
+            padding: 1.2cm 0.6cm !important;
+            -webkit-print-color-adjust: exact !important;
+        }
+
+        .name {
+            font-size: 15pt !important;
+        }
+
+        .title-position {
+            font-size: 11pt !important;
+        }
+
+        .sidebar-title {
+            font-size: 11pt !important;
+        }
+
+        .contact-item,
+        .language-item {
+            font-size: 8pt !important;
+        }
+    }
+</style>
