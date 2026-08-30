@@ -1,0 +1,44 @@
+---
+import Profile from './Profile.astro';
+import WorkExperience from './WorkExperience.astro';
+import TechnicalExpertise from './TechnicalExpertise.astro';
+---
+
+<main class="main-content">
+    <Profile />
+    <WorkExperience />
+    <TechnicalExpertise />
+</main>
+
+<style>
+    .main-content {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 14.5cm;
+        height: 29.7cm;
+        padding: 1.2cm 1cm;
+        overflow: hidden;
+    }
+
+    @media (max-width: 820px) {
+        .main-content {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: 24px 20px 40px;
+        }
+    }
+
+    @media print {
+        .main-content {
+            position: absolute !important;
+            right: 0 !important;
+            top: 0 !important;
+            width: 14.5cm !important;
+            height: 29.7cm !important;
+            padding: 1.2cm 1cm !important;
+            overflow: visible !important;
+        }
+    }
+</style>

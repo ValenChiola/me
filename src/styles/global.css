@@ -26,6 +26,36 @@ body {
     overflow: hidden;
 }
 
+.section {
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: 13pt;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ecf0f1;
+    font-weight: 600;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 16px;
+    background-color: #3498db;
+    border-radius: 2px;
+}
+
 .print-button {
     position: fixed;
     bottom: 20px;
@@ -62,6 +92,10 @@ body {
         padding: 8px 14px;
         font-size: 12px;
     }
+
+    .section-title {
+        font-size: 16pt;
+    }
 }
 
 @media print {
@@ -89,5 +123,9 @@ body {
 
     .print-button {
         display: none !important;
+    }
+
+    .section-title {
+        font-size: 12pt !important;
     }
 }

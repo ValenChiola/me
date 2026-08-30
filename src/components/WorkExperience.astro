@@ -1,0 +1,109 @@
+---
+import { jobs } from "../data/jobs";
+---
+
+<section class="section" aria-labelledby="work-title">
+    <h2 id="work-title" class="section-title">Work Experience</h2>
+    {
+        jobs.map(({ company, date, role, bullets }) => (
+            <article class="job-experience">
+                <header class="company-date">
+                    <h3 class="company">{company}</h3>
+                    <time class="date">{date}</time>
+                </header>
+                <p class="role">{role}</p>
+                <ul>
+                    {bullets.map((bullet) => (
+                        <li>{bullet}</li>
+                    ))}
+                </ul>
+            </article>
+        ))
+    }
+</section>
+
+<style>
+    .job-experience {
+        margin-bottom: 14px;
+    }
+
+    .company-date {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3px;
+        align-items: center;
+    }
+
+    .company {
+        font-weight: bold;
+        color: #2c3e50;
+        font-size: 11pt;
+    }
+
+    .date {
+        color: #3498db;
+        font-weight: 500;
+        background-color: #ecf0f1;
+        padding: 1px 6px;
+        border-radius: 10px;
+        font-size: 8.5pt;
+        white-space: nowrap;
+    }
+
+    .role {
+        font-style: italic;
+        color: #7f8c8d;
+        margin-bottom: 6px;
+        font-size: 10pt;
+    }
+
+    ul {
+        padding-left: 16px;
+        margin-top: 5px;
+    }
+
+    li {
+        margin-bottom: 5px;
+        color: #444;
+        line-height: 1.35;
+        font-size: 9.5pt;
+    }
+
+    @media (max-width: 820px) {
+        .company-date {
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .company {
+            font-size: 13pt;
+        }
+
+        .role {
+            font-size: 12pt;
+        }
+
+        .date {
+            font-size: 10pt;
+        }
+
+        li {
+            font-size: 11pt;
+            line-height: 1.5;
+        }
+    }
+
+    @media print {
+        .company {
+            font-size: 10pt !important;
+        }
+
+        li {
+            font-size: 9pt !important;
+        }
+
+        .date {
+            font-size: 8pt !important;
+        }
+    }
+</style>

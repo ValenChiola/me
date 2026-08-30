@@ -1,0 +1,70 @@
+---
+import { skillCategories } from "../data/skills";
+---
+
+<section class="section skills-section" aria-labelledby="skills-title">
+    <h2 id="skills-title" class="section-title">Technical Expertise</h2>
+    {
+        skillCategories.map(({ title, tags }) => (
+            <div class="skills-category">
+                <h3 class="skills-category-title">{title}</h3>
+                <ul class="skills-tags">
+                    {tags.map((tag) => (
+                        <li class="skill-tag">{tag}</li>
+                    ))}
+                </ul>
+            </div>
+        ))
+    }
+</section>
+
+<style>
+    .skills-section {
+        margin-top: 10px;
+    }
+
+    .skills-category {
+        margin-bottom: 10px;
+    }
+
+    .skills-category-title {
+        font-size: 10pt;
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        list-style: none;
+    }
+
+    .skill-tag {
+        background-color: #f0f8ff;
+        border: 1px solid #3498db;
+        color: #2c3e50;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 8.5pt;
+        font-weight: 500;
+    }
+
+    @media (max-width: 820px) {
+        .skills-category-title {
+            font-size: 12pt;
+        }
+
+        .skill-tag {
+            font-size: 10pt;
+            padding: 4px 10px;
+        }
+    }
+
+    @media print {
+        .skill-tag {
+            font-size: 8pt !important;
+        }
+    }
+</style>

@@ -1,22 +1,5 @@
 ---
-const profileImage = `${import.meta.env.BASE_URL}me.jpeg`;
-
-const contacts = [
-    {
-        icon: "GH",
-        label: "/ValenChiola",
-        href: "https://github.com/ValenChiola",
-    },
-    {
-        icon: "IN",
-        label: "/in/valentino-chiola",
-        href: "https://www.linkedin.com/in/valentino-chiola-651b421b8/",
-    },
-    { icon: "✉", label: "tinochiola06@gmail.com" },
-    { icon: "🏠", label: "Mar del Plata, Argentina" },
-];
-
-const languages = ["Spanish (native)", "English (B2, certified)"];
+import { profileImage, contacts, languages } from "../data/sidebar";
 ---
 
 <aside class="sidebar">
@@ -24,43 +7,45 @@ const languages = ["Spanish (native)", "English (B2, certified)"];
         <img src={profileImage} alt="Valentino Chiola" class="profile-image" />
     </div>
 
-    <div class="name">Valentino Chiola</div>
-    <div class="title-position">Senior Software Engineer</div>
+    <h1 class="name">Valentino Chiola</h1>
+    <p class="title-position">Senior Software Engineer</p>
 
-    <div class="sidebar-section">
-        <div class="sidebar-title">Contact</div>
-        <div class="contact-info">
+    <section class="sidebar-section" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="sidebar-title">Contact</h2>
+        <ul class="contact-info">
             {
-                contacts.map((c) => (
-                    <div class="contact-item">
-                        <span class="contact-icon">{c.icon}</span>
-                        {c.href ? (
-                            <a target="_blank" href={c.href}>
-                                {c.label}
+                contacts.map(({ icon, href, label }) => (
+                    <li class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">
+                            {icon}
+                        </span>
+                        {href ? (
+                            <a target="_blank" rel="noopener noreferrer" href={href}>
+                                {label}
                             </a>
                         ) : (
-                            <span>{c.label}</span>
+                            <span>{label}</span>
                         )}
-                    </div>
+                    </li>
                 ))
             }
-        </div>
-    </div>
+        </ul>
+    </section>
 
-    <div class="sidebar-section">
-        <div class="sidebar-title">Education</div>
+    <section class="sidebar-section" aria-labelledby="education-title">
+        <h2 id="education-title" class="sidebar-title">Education</h2>
         <div class="education-item">
-            <div class="university">Universidad Nacional de Mar del Plata</div>
-            <div class="degree">Computer Engineering</div>
+            <p class="university">Universidad Nacional de Mar del Plata</p>
+            <p class="degree">Computer Engineering</p>
         </div>
-    </div>
+    </section>
 
-    <div class="sidebar-section">
-        <div class="sidebar-title">Languages</div>
-        <div class="languages-list">
-            {languages.map((l) => <div class="language-item">{l}</div>)}
-        </div>
-    </div>
+    <section class="sidebar-section" aria-labelledby="languages-title">
+        <h2 id="languages-title" class="sidebar-title">Languages</h2>
+        <ul class="languages-list">
+            {languages.map((item) => <li class="language-item">{item}</li>)}
+        </ul>
+    </section>
 </aside>
 
 <style>
@@ -120,6 +105,11 @@ const languages = ["Spanish (native)", "English (B2, certified)"];
         margin-bottom: 8px;
         padding-bottom: 4px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-info,
+    .languages-list {
+        list-style: none;
     }
 
     .contact-info {
