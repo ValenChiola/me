@@ -1,42 +1,52 @@
 ---
 const jobs = [
     {
-        company: 'EggLive',
-        date: 'Oct 2021 – Present',
-        role: 'Ssr Software Engineer',
+        company: 'Crombie',
+        date: 'Feb 2026 – Present',
+        role: 'Senior Software Engineer, Software Engineer (Finch)',
         bullets: [
-            'Implemented a user registration system with AWS Lambda and SQS that scales to 40k+ daily sign-ups without degradation.',
-            'Developed a virtual meeting platform for daily course sessions (similar to Zoom/Meet) used for thousands of users simultaneously.',
-            'Enterprise microservice architecture for B2B2C platforms with DDD, event-driven communication, and cloud-native resilience.',
+            'Part of the Integrations Team, owning the full lifecycle of every integration between upstream payroll providers and Finch\'s interfacing layer.',
+            'Keep existing integrations stable and performant while expanding coverage and the number of integrations.',
+            'Respond to breakages and alerts, and invest in automation that shrinks the maintenance load over time.',
         ],
     },
     {
         company: 'Egg Live',
-        date: 'June 2021 – 2022',
+        date: 'Jul 2021 – Feb 2026',
+        role: 'Software Engineer',
+        bullets: [
+            'Contributed to Egg\'s Backoffice frontend development, enhancing user experience with React.',
+            'Built a Fastify and Node.js API for student sign-ups from scratch, prioritizing performance and security.',
+            'Led a microservices infrastructure development, ensuring seamless integration and scalability.',
+        ],
+    },
+    {
+        company: 'Egg Live',
+        date: 'Jul 2021 – Jun 2022',
         role: 'Professor',
         bullets: [
-            'Taught an Egg course for over 100 students, guiding them through theoretical concepts and hands-on practice.',
-            'Designed dynamic classes and supported students in building technical skills.',
+            'Designed and delivered engaging lectures for an Egg course, fostering a dynamic learning environment.',
+            'Guided students through practical applications of course material, contributing to their skill development.',
         ],
     },
 ];
 
 const skillCategories = [
     {
-        title: 'Frontend & Backend',
-        tags: ['React & TypeScript', 'Node.js & Fastify', 'Redux & React Query', 'WebSockets', 'REST APIs'],
+        title: 'Backend',
+        tags: ['Node.js', 'NestJS', 'Fastify', 'Express', 'TypeScript', 'Prisma', 'Socket Servers'],
     },
     {
-        title: 'Cloud & DevOps',
-        tags: ['AWS (Lambda, SQS)', 'Docker', 'CI/CD', 'Git'],
+        title: 'Frontend',
+        tags: ['React + TypeScript', 'Next.js', 'TanStack (Query, Table, Router)', 'WebSockets'],
     },
     {
-        title: 'Databases',
-        tags: ['MySQL & PostgreSQL', 'MongoDB', 'Redis'],
+        title: 'Databases & Testing',
+        tags: ['MySQL', 'MongoDB', 'Redis', 'Cypress', 'Jest', 'Vitest'],
     },
     {
-        title: 'Architecture & Practices',
-        tags: ['Microservices', 'DDD', 'Event-Driven', 'Clean Code', 'Agile/Scrum'],
+        title: 'Cloud & Tooling',
+        tags: ['AWS', 'Docker', 'Kubernetes', 'GitHub', 'GitLab'],
     },
 ];
 ---
@@ -46,11 +56,11 @@ const skillCategories = [
         <div class="section-title">Profile</div>
         <div class="profile-text">
             Senior Software Engineer with experience building and maintaining scalable web applications across the full
-            stack. I work hands-on with React, Next.js, TypeScript, and modern front-end tools, while also developing
-            and maintaining back-end services, APIs, and database integrations. I have contributed to real-time features
-            and end-to-end solutions used by 50,000+ users. I focus on writing clean, maintainable code, ensuring solid
-            architecture, and collaborating closely with cross-functional teams to deliver reliable, high-impact
-            products.
+            stack. I work directly with React, Next.js, TypeScript, and modern frontend tools, while also developing
+            and maintaining backend services, APIs, and database integrations. I have contributed to realtime features
+            and complete solutions used by over 50,000 users. I focus on writing clean, maintainable code, ensuring
+            solid architecture, and collaborating closely with diverse teams to deliver reliable products with lasting
+            impact.
         </div>
     </div>
 
@@ -72,17 +82,6 @@ const skillCategories = [
                 </div>
             ))
         }
-    </div>
-
-    <div class="section">
-        <div class="section-title">
-            Side Projects
-            <div class="date">Mar 2024 – Present</div>
-        </div>
-        <div class="profile-text">
-            Working with university faculty on academic-related projects. Managing full development lifecycle —
-            planning, implementation, and delivery — while maintaining effective communication and meeting deadlines.
-        </div>
     </div>
 
     <div class="section skills-section">

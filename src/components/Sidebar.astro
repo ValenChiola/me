@@ -1,14 +1,22 @@
 ---
-const profileImage = '/me.jpeg';
+const profileImage = "/me.jpeg";
 
 const contacts = [
-    { icon: 'GH', label: '/ValenChiola', href: 'https://github.com/ValenChiola' },
-    { icon: 'IN', label: '/in/valentino-chiola', href: 'https://www.linkedin.com/in/valentino-chiola-651b421b8/' },
-    { icon: '✉', label: 'tinochiola06@gmail.com' },
-    { icon: '🏠', label: 'Mar del Plata, Argentina' },
+    {
+        icon: "GH",
+        label: "/ValenChiola",
+        href: "https://github.com/ValenChiola",
+    },
+    {
+        icon: "IN",
+        label: "/in/valentino-chiola",
+        href: "https://www.linkedin.com/in/valentino-chiola-651b421b8/",
+    },
+    { icon: "✉", label: "tinochiola06@gmail.com" },
+    { icon: "🏠", label: "Mar del Plata, Argentina" },
 ];
 
-const languages = ['Spanish (native)', 'English (B2, certified)'];
+const languages = ["Spanish (native)", "English (B2, certified)"];
 ---
 
 <aside class="sidebar">
@@ -43,7 +51,7 @@ const languages = ['Spanish (native)', 'English (B2, certified)'];
         <div class="sidebar-title">Education</div>
         <div class="education-item">
             <div class="university">Universidad Nacional de Mar del Plata</div>
-            <div class="degree">Software Engineer</div>
+            <div class="degree">Computer Engineering</div>
         </div>
     </div>
 
@@ -151,8 +159,9 @@ const languages = ['Spanish (native)', 'English (B2, certified)'];
     }
 
     .university {
-        font-weight: bold;
+        font-weight: 500;
         font-size: 10pt;
+        letter-spacing: 0.2px;
     }
 
     .degree {
