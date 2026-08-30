@@ -18,6 +18,6 @@ export const skillCategories: SkillCategory[] = [
     },
     {
         title: 'Cloud & Tooling',
-        tags: ['AWS', 'Docker', 'Kubernetes', 'GitHub', 'GitLab'],
+        tags: ['AWS', 'S3', 'Docker', 'Kubernetes', 'Datadog', 'GitHub', 'GitLab'],
     },
 ];
